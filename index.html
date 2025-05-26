@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modelo Matemático Hospital Obrero</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Logo Hospital Obrero" class="logo" />
+      <h1>Modelo Matemático - Hospital Obrero</h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="problema">
+      <h2>Problema planteado</h2>
+      <p>
+        Cuando un paciente llega con emergencia (apendicitis, fractura, etc.), debe esperar para que haya una cama disponible. Una vez con cama, debe esperar atención médica. El tiempo de espera puede ser largo, incluso todo el día.
+      </p>
+    </section>
+
+    <section id="analisis">
+      <h2>Análisis con Cálculo y Geometría</h2>
+      <p>
+        - Pacientes llegan a tasa <strong>λ = 6</strong> pacientes/hora.<br />
+        - El hospital atiende a tasa <strong>μ = 4</strong> pacientes/hora.<br />
+        - Hay <strong>C = 12</strong> camas disponibles.<br /><br />
+        La tasa neta de crecimiento de pacientes esperando es: <br />
+        <em>dN/dt = λ - μ = 2 pacientes/hora</em><br />
+        Por lo tanto, <strong>N(t) = 2t</strong>, donde <em>t</em> es el tiempo en horas.<br />
+        Las camas se saturan cuando <strong>N(t) = C</strong>, es decir, cuando <em>t = 6</em> horas.<br />
+        Después de eso, la cantidad de pacientes esperando es <strong>Q(t) = 2t - 12</strong>.<br />
+        El tiempo de espera promedio es <strong>W(t) = (Q(t))/μ = 0.5t - 3</strong> horas.<br />
+      </p>
+    </section>
+
+    <section id="ejemplo">
+      <h2>Ejemplo interactivo</h2>
+      <p>Introduce el tiempo en horas para ver el número de pacientes esperando y el tiempo de espera:</p>
+      <input type="number" id="inputTime" min="0" step="0.1" placeholder="Tiempo en horas" />
+      <button id="btnCalcular">Calcular</button>
+
+      <div id="resultados">
+        <canvas id="chart" width="700" height="350"></canvas>
+        <p><strong>Pacientes esperando (N(t)):</strong> <span id="numPacientes">0</span></p>
+        <p><strong>Pacientes esperando cama (Q(t)):</strong> <span id="pacientesEspera">0</span></p>
+        <p><strong>Tiempo de espera promedio (W(t)) en horas:</strong> <span id="tiempoEspera">0</span></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
